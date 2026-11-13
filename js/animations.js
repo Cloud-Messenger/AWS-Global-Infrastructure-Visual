@@ -1,0 +1,7 @@
+(function(){const FILES={"index.html":"HTML → edge → browser","style.css":"CSS → edge cache hit → browser","app.js":"JS → edge → browser","poster.jpg":"Poster → origin on miss → edge → browser"};
+const cols=['#7a0610','#1b3a6b','#4a2a80','#0e5a4d','#8a4b08','#333','#6b1b4a'],names=['Midnight Monsoon','Neon Delta','Paper Moons','Signal Lost','Orbit 9','Last Train','Harbor Lights'];
+document.getElementById('posters').innerHTML=names.map((n,i)=>`<div class="p" style="background:linear-gradient(160deg,${cols[i]},#000)">${n}</div>`).join('');
+document.querySelectorAll('.f').forEach(b=>b.onclick=()=>{document.querySelectorAll('.f').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.getElementById('ffl').textContent=' 📦 '+FILES[b.dataset.f]});
+const A=[["🌍 Region","A major city where AWS operates infrastructure.","AWS Region: separate geographic area with multiple AZs."],["🏢 Availability Zone","An isolated location in that city.","One or more discrete data centers with independent power and networking."],["🖥️ Data center","A facility full of servers.","Physical building with compute, storage, network, power, cooling."],["🚀 Edge Location","A nearby delivery hub.","CloudFront site that serves cached content."]];
+document.getElementById('analogy').innerHTML=A.map((a,i)=>`<button class="an" data-i="${i}">${a[0]}</button>`).join('');
+document.querySelectorAll('.an').forEach(b=>b.onclick=()=>{const a=A[b.dataset.i];document.getElementById('aninfo').innerHTML=`<b>${a[0]}</b>: ${a[1]}<br><b>AWS:</b> ${a[2]}`})})();
